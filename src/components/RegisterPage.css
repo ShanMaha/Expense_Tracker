@@ -1,0 +1,82 @@
+/* src/components/RegisterPage.css */
+
+.register-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  gap: 15px;
+}
+
+.social-register-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.google-button,
+.facebook-button,
+.email-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google-button {
+  background-color: #db4437;
+  color: white;
+}
+
+.facebook-button {
+  background-color: #3b5998;
+  color: white;
+}
+
+.email-button {
+  background-color: #4285f4;
+  color: white;
+}
+
+.google-button:hover,
+.facebook-button:hover,
+.email-button:hover {
+  opacity: 0.9;
+}
+
+.register-form .form-group {
+  margin-bottom: 15px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.register-button {
+  background-color: #2846b4; /* Green color for the register button */
+  color: white;
+  font-size: 18px; /* Increased font size for the register button */
+  padding: 10px; /* Larger padding for a more prominent button */
+  margin-top: 10px; 
+  margin-bottom: 20px;
+  margin-left: 200px;
+ 
+}
