@@ -26,7 +26,6 @@ function Dashboard() {
     };
   }, []);
 
-  // Calculate income and total expenses
   const calculateIncomeAndExpenses = (expenses) => {
     let totalIncome = 0;
     let totalExpense = 0;
@@ -43,7 +42,6 @@ function Dashboard() {
     setTotalExpenses(totalExpense);
   };
 
-  // Handle form submission for adding or editing an expense
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -74,13 +72,11 @@ function Dashboard() {
     setEditingExpense(null);
   };
 
-  // Handle form data changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  // Handle expense deletion
   const handleDeleteExpense = (idToDelete) => {
     const updatedExpenses = expenses.filter(expense => expense.id !== idToDelete);
     setExpenses(updatedExpenses);
@@ -88,12 +84,10 @@ function Dashboard() {
     calculateIncomeAndExpenses(updatedExpenses);
   };
 
-  // Save expenses to localStorage
   const saveExpensesToLocalStorage = (updatedExpenses) => {
     localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
   };
 
-  // Filter expenses by category
   const filteredExpenses = filterCategory === 'All'
     ? expenses
     : expenses.filter(expense => expense.category === filterCategory);
@@ -109,6 +103,7 @@ function Dashboard() {
           placeholder="Name"
           value={formData.name}
           onChange={handleInputChange}
+          required
         />
         <input
           type="number"
@@ -116,11 +111,13 @@ function Dashboard() {
           placeholder="Amount"
           value={formData.amount}
           onChange={handleInputChange}
+          required
         />
         <select
           name="category"
           value={formData.category}
           onChange={handleInputChange}
+          required
         >
           <option value="">Select Category</option>
           <option value="Food">Food</option>
@@ -133,11 +130,10 @@ function Dashboard() {
           name="date"
           value={formData.date}
           onChange={handleInputChange}
+          required
         />
         <button type="submit">{editingExpense ? 'Update Expense' : 'Add Expense'}</button>
       </form>
-
-      
 
       <div className="budget-summary">
         <p><strong>Total Income:</strong> Rs {income.toFixed(2)} </p>
@@ -159,14 +155,14 @@ function Dashboard() {
           <option value="Other">Other</option>
         </select>
       </div>
-      
+
       <div className="expense-list-container">
         <h2>Expenses</h2>
         {filteredExpenses.length > 0 ? (
           filteredExpenses.map(expense => (
             <div key={expense.id} className="expense-item">
               <p><strong>Name:</strong> {expense.name}</p>
-              <p><strong>Amount:</strong> {expense.amount}</p>
+              <p><strong>Amount:</strong> Rs {expense.amount.toFixed(2)}</p>
               <p><strong>Category:</strong> {expense.category}</p>
               <p><strong>Date:</strong> {expense.date}</p>
               <button

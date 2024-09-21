@@ -22,13 +22,13 @@ function Header() {
       <h1 className="title">Expense Tracker</h1>
       <nav className="nav">
         <Link to="/dashboard" className="nav-link">
-          <span className="icon"></span> Dashboard
+          Dashboard
         </Link>
         <Link to="/settings" className="nav-link">
-          <span className="icon"></span> Settings
+          Settings
         </Link>
         <button onClick={handleLogout} className="nav-link logout-button">
-          <span className="icon"></span> LogOut
+          LogOut
         </button>
       </nav>
     </header>

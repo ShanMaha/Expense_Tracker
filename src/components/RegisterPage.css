@@ -1,82 +1,105 @@
-/* src/components/RegisterPage.css */
-
+/* Container for the register page */
 .register-container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  gap: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
 }
 
-.social-register-buttons {
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+.register-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
 }
 
-.google-button,
-.facebook-button,
-.email-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
   padding: 10px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
 }
 
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Button styling */
+.register-button, .social-register-buttons button {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  background-color: #055bd3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.register-button:hover, .social-register-buttons button:hover {
+  background-color: red;
+}
+
+/* Social buttons */
+.social-register-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.social-register-buttons button {
+  margin-bottom: 10px;
+}
+
 .google-button {
-  background-color: #db4437;
-  color: white;
+  background-color: #dd4b39;
 }
 
 .facebook-button {
   background-color: #3b5998;
-  color: white;
 }
 
 .email-button {
-  background-color: #4285f4;
-  color: white;
+  background-color: #0078D4;
 }
 
-.google-button:hover,
-.facebook-button:hover,
-.email-button:hover {
-  opacity: 0.9;
-}
+@media (max-width: 500px) {
+  .register-container {
+    padding: 15px;
+  }
 
-.register-form .form-group {
-  margin-bottom: 15px;
-}
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 14px;
+  }
 
-.register-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.register-form input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.error-message {
-  color: red;
-  margin-top: 10px;
-}
-
-.register-button {
-  background-color: #2846b4; /* Green color for the register button */
-  color: white;
-  font-size: 18px; /* Increased font size for the register button */
-  padding: 10px; /* Larger padding for a more prominent button */
-  margin-top: 10px; 
-  margin-bottom: 20px;
-  margin-left: 200px;
- 
+  .register-button, .social-register-buttons button {
+    font-size: 14px;
+  }
 }

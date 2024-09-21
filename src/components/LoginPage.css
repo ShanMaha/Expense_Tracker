@@ -42,23 +42,40 @@ h2 {
   border-radius: 4px;
 }
 
-.login-button {
+.error-message {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-button, .back-button {
   padding: 10px;
   font-size: 1rem;
   color: #fff;
-  background-color: #007bff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 48%; /* Ensure both buttons take equal width */
+}
+
+.login-button {
+  background-color: #007bff;
 }
 
 .login-button:hover {
   background-color: #0056b3;
 }
 
-.error-message {
-  color: #ff0000;
-  font-size: 0.875rem;
-  margin-bottom: 10px;
+.back-button {
+  background-color: #007bff;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
 }

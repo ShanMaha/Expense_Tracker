@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Settings.css';
 
 function Setting() {
-  // Initialize profile state with default values
   const [profile, setProfile] = useState({
     username: '',
     email: '',
@@ -23,9 +22,10 @@ function Setting() {
 
   const [editing, setEditing] = useState(false);
   const [preview, setPreview] = useState(null);
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
-    // Load profile data from localStorage when the component mounts
     try {
       const savedProfile = JSON.parse(localStorage.getItem('profile'));
       if (savedProfile) {
@@ -35,7 +35,7 @@ function Setting() {
     } catch (e) {
       console.error('Error loading profile from localStorage:', e);
     }
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -68,13 +68,19 @@ function Setting() {
   };
 
   const handleSave = () => {
+    // Validate fields
+    if (!profile.username || !profile.email) {
+      setError('Username and Email are required.');
+      return;
+    }
     try {
       localStorage.setItem('profile', JSON.stringify(profile));
       setEditing(false);
+      setError('');
+      setSuccessMessage('Profile updated successfully!');
     } catch (e) {
       if (e.code === 22 || e.name === 'QuotaExceededError') {
-        console.error('Storage quota exceeded! Consider cleaning up old data or reducing the size of the stored item.');
-        // Handle the error, such as by notifying the user
+        console.error('Storage quota exceeded! Consider cleaning up old data.');
       } else {
         console.error('An error occurred while saving to localStorage:', e);
       }
@@ -225,7 +231,6 @@ function Setting() {
               <option value="en">English</option>
               <option value="es">Tamil</option>
               <option value="fr">Sinhala</option>
-              {/* Add more languages as needed */}
             </select>
           </label>
           <label>
@@ -238,9 +243,10 @@ function Setting() {
               <option value="US">Sri Lanka</option>
               <option value="EU">India</option>
               <option value="AS">Other</option>
-              {/* Add more regions as needed */}
             </select>
           </label>
+          {error && <p className="error-message">{error}</p>}
+          {successMessage && <p className="success-message">{successMessage}</p>}
           <button onClick={handleSave} className="save-button">Save</button>
           <button onClick={() => setEditing(false)} className="cancel-button">Cancel</button>
         </div>

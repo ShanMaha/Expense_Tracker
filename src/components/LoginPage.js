@@ -22,6 +22,10 @@ function LoginPage() {
     }
   };
 
+  const handleBackClick = () => {
+    navigate(-1); // Navigates to the previous page
+  };
+
   return (
     <div className="login-container">
       <h2>Login</h2>
@@ -47,7 +51,11 @@ function LoginPage() {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="login-button">Login</button>
+        
+        <div className="button-group">
+          <button type="submit" className="login-button">Login</button>
+          <button type="button" className="back-button" onClick={handleBackClick}>Back</button>
+        </div>
       </form>
     </div>
   );

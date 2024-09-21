@@ -27,21 +27,16 @@ function RegisterPage() {
   };
 
   const handleGoogleRegister = () => {
-    // Redirect to Google registration page
     window.location.href = 'https://accounts.google.com/signup';
   };
 
   const handleFacebookRegister = () => {
-    // Redirect to Facebook registration page
     window.location.href = 'https://www.facebook.com/r.php';
-};
+  };
 
-
-const handleEmailRegister = () => {
-  // Redirect to Outlook registration page
-  window.location.href = 'https://signup.live.com/signup';
-};
-
+  const handleEmailRegister = () => {
+    window.location.href = 'https://signup.live.com/signup';
+  };
 
   return (
     <div className="register-container">
@@ -55,6 +50,7 @@ const handleEmailRegister = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter your username"
+            required
           />
         </div>
         <div className="form-group">
@@ -65,6 +61,7 @@ const handleEmailRegister = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
+            required
           />
         </div>
         <div className="form-group">
@@ -75,6 +72,7 @@ const handleEmailRegister = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
+            required
           />
         </div>
         <div className="form-group">
@@ -85,11 +83,13 @@ const handleEmailRegister = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm your password"
+            required
           />
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="register-button">Register</button>
       </form>
+
       <div className="social-register-buttons">
         <button className="google-button" onClick={handleGoogleRegister}>
           <FontAwesomeIcon icon={faGoogle} /> Register with Google

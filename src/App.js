@@ -1,5 +1,4 @@
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 import LoginPage from './components/LoginPage';
@@ -9,18 +8,20 @@ import Header from './components/Header';
 import Setting from './components/Setting';
 import Logout from './components/Logout';
 
+
 function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/logout" element={<Logout/>} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/settings" element={<Setting />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<RegisterPage />} />
+              <Route path="/dashboard" element={<><Header /><Dashboard /></>} />
+              <Route path="/settings" element={<><Header /><Setting /></>} />
+              <Route path="/logout" element={<Logout />} />
+          </Routes>
+        </div>
       </Router>
     </Provider>
   );
