@@ -1,73 +1,104 @@
 .dashboard-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-title {
   text-align: center;
-  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;
 }
 
 .expense-form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .expense-form input,
-.expense-form select,
-.expense-form button {
-  margin: 5px 0;
+.expense-form select {
   padding: 10px;
-  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.budget-summary {
-  margin: 20px 0;
+.expense-form button {
+  padding: 10px;
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.expense-form button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.budget-summary p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-container select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.filter-container {
-  margin: 20px 0;
-}
-
 .expense-list-container {
   margin-top: 20px;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
 }
 
 .expense-item {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.expense-item p {
+  margin: 5px 0;
 }
 
 .edit-expense-button,
 .delete-expense-button {
-  margin-right: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
 }
 
-@media (min-width: 600px) {
-  .expense-form {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+.edit-expense-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
 
-  .expense-form input,
-  .expense-form select {
-    flex: 1 1 calc(50% - 10px);
-    margin: 5px;
-  }
+.edit-expense-button:hover {
+  background-color: #0069d9; /* Darker blue on hover */
+}
 
-  .expense-form button {
-    flex: 1 1 100%;
-  }
+.delete-expense-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
 
-  .budget-summary {
-    display: flex;
-    justify-content: space-between;
-  }
+.delete-expense-button:hover {
+  background-color: #c82333; /* Darker red on hover */
 }
