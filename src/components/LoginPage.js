@@ -23,7 +23,7 @@ function LoginPage() {
   };
 
   const handleBackClick = () => {
-    navigate(-1); // Navigates to the previous page
+    navigate('/'); // Navigates to the previous page
   };
 
   return (
